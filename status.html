@@ -84,6 +84,7 @@ hr {
     border: 1px solid #333;
 }
 </style>
+
 <script>
 setInterval(() => {
     if (Math.random() < 0.1) {
@@ -93,6 +94,8 @@ setInterval(() => {
         }, 100);
     }
 }, 500);
+</script>
+
 <div id="hiddenZone" onclick="enterSecret()"></div>
 
 <style>
@@ -102,10 +105,11 @@ setInterval(() => {
     right: 10px;
     width: 50px;
     height: 50px;
-    opacity: 10; 
+    opacity: 20; 
     cursor: pointer;
 }
 </style>
+
 <script>
 function enterSecret() {
     window.location.href = "secret.html";

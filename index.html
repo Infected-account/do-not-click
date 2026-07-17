@@ -2,17 +2,18 @@
 <html>
 <head>
 <title>SIGNAL FOUND</title>
+
 <style>
 body { 
-    background:black;
-    color:red;
+    background: black;
+    color: red;
     font-family: monospace;
-    text-align:center;
+    text-align: center;
 
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     height: 100vh;
     margin: 0;
@@ -20,40 +21,37 @@ body {
 
 button {
     background: red;
-     color: black;
+    color: black;
     padding: 10px;
     margin: 10px;
+    border: none;
+    cursor: pointer;
 }
-
 </style>
+
 </head>
 <body>
 
 <h1>UNIDENTIFIED SIGNAL DETECTED</h1>
 <p>Do you wish to continue?</p>
 
-<button onclick="location.href='watch.html'">YES</button>
+<button onclick="goYes()">YES</button>
 <button onclick="glitch()">NO</button>
-    
+
 <script>
-function glitch(){
-    document.body.innerHTML = "<h1>...you don't have a choice...</h1>";
+function goYes() {
+    window.location.href = "watch.html";
 }
-</html>
 
-<button onclick="handleYes()">Yes</button>
-<button onclick="handleNo()">No</button>
+function glitch() {
+    document.body.innerHTML = `
+        <h1>...you don't have a choice...</h1>
+        <p>redirecting...</p>
+    `;
 
-<!DOCTYPE html>
-<html>
-<body>
-
-<button onclick="handleYes()">Yes</button>
-<button onclick="handleNo()">No</button>
-
-<script>
-function handleNo() {
-  alert("No isn't allowed...");
+    setTimeout(() => {
+        window.location.href = "watch.html";
+    }, 2000);
 }
 </script>
 

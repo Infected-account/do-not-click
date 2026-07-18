@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>...</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+    }
+
+    #scare {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background: black;
+    }
+
+    #scare img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+<div id="scare">
+  <img src="scare.jpg">
+</div>
+
+<audio id="scream" src="scare.mp3"></audio>
+
+<script>
+function triggerScare() {
+  const scare = document.getElementById("scare");
+  const sound = document.getElementById("scream");
+
+  scare.style.display = "flex";
+
+  sound.volume = 0.6; // don’t max it out
+  sound.play();
+
+  // optional: flash effect
+  document.body.style.background = "white";
+  setTimeout(() => {
+    document.body.style.background = "black";
+  }, 100);
+}
+</script>
+
+</body>
+</html>
+
+<button onclick="triggerScare()">No</button>
+
+<script>
+function triggerScare() {
+  window.location.href = "scare.html";
+}
+</script>

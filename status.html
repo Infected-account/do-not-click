@@ -134,6 +134,56 @@ function enterSecret() {
 
 <script>
 console.log("%cyou found it", "color: red; font-size: 20px; font-family: monospace;");
-
 console.log("%chttps://youtu.be/NT_X0JJ3Vwk", "color: orange; font-size: 14px;");
+</script>
+
+<!-- IMAGE VIEWER -->
+<div id="viewer" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+" onclick="closeViewer()">
+    <img id="viewerImg" src="" style="max-width: 80%; max-height: 80%;">
+</div>
+
+<script>
+// make names clickable
+document.querySelectorAll("strong").forEach(name => {
+    name.style.cursor = "pointer";
+
+    name.addEventListener("click", () => {
+        const text = name.innerText.toLowerCase();
+
+        if (text.includes("markiplier")) {
+            showImage("markiplier.png");
+        }
+        if (text.includes("yub")) {
+            showImage("yub.png");
+        }
+        if (text.includes("jmancurly")) {
+            showImage("jmancurly.png");
+        }
+    });
+});
+
+// show image
+function showImage(src) {
+    const viewer = document.getElementById("viewer");
+    const img = document.getElementById("viewerImg");
+
+    img.src = src;
+    viewer.style.display = "flex";
+}
+
+// close image
+function closeViewer() {
+    document.getElementById("viewer").style.display = "none";
+}
 </script>

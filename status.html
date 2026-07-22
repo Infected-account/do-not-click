@@ -170,6 +170,30 @@ document.querySelectorAll("strong").forEach(name => {
         if (text.includes("jmancurly")) {
             showImage("jmancurly.png");
         }
+        if (text.includes("sr.pelo")) {
+    
+    const viewer = document.getElementById("viewer");
+    const img = document.getElementById("viewerImg");
+
+    viewer.style.display = "flex";
+    img.style.opacity = "0";
+
+    setTimeout(() => {
+        img.src = "srpelo.png";
+        img.style.opacity = "1";
+    }, 1200);
+
+    let flickerCount = 0;
+    let flicker = setInterval(() => {
+        img.style.opacity = Math.random() > 0.5 ? "0" : "1";
+        flickerCount++;
+
+        if (flickerCount > 8) {
+            clearInterval(flicker);
+            img.style.opacity = "1";
+        }
+    }, 70);
+}
     });
 });
 
